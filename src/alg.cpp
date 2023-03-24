@@ -5,8 +5,12 @@ int cbinsearch(int* arr, int k, int len, int elem) {
     int i = k, j = len;
     while (i < j - 1) {
         mid = (i + j) / 2;
-        if (arr[mid] > elem) j = mid;
-        else if (arr[mid] < elem) i = mid;
+        if (arr[mid] > elem) {
+            j = mid;
+        }
+        else if (arr[mid] < elem) {
+            i = mid;
+        }
         else {
             count++;
             side = mid + 1;

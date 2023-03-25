@@ -3,7 +3,7 @@
 void sort(int* arr, int len) {
     int elem;
     bool flag;
-    for (int i = len - 1; i > 0; i--) {
+    for (int i = len - 1; i > 0; --i) {
         flag = true;
         for (int j = 0; j < i; j++) {
             if (arr[j] > arr[j + 1]) {
@@ -17,6 +17,32 @@ void sort(int* arr, int len) {
             break;
         }
     }
+}
+
+int countPairs1(int* arr, int len, int value) {
+    int count = 0;
+    for (int i = 0; i < len - 1; ++i) {
+        for (int j = i + 1; j < len; ++j) {
+            if (arr[i] + arr[j] == value) {
+                count++;
+            }
+        }
+    }
+    return count;
+}
+
+int countPairs2(int* arr, int len, int value) {
+    int count = 0;
+    for (int i = len - 1; i >= 0 ; --i) {
+        if (arr[i] <= value) {
+            for (int j = i + 1; j < len; ++j) {
+                if (arr[i] + arr[j] == value) {
+                    count++;
+                }
+            }
+        }
+    }
+    return count;
 }
 
 int binsearch(int* arr, int k, int len, int elem) {
@@ -42,32 +68,6 @@ int binsearch(int* arr, int k, int len, int elem) {
                 side--;
             }
             break;
-        }
-    }
-    return count;
-}
-
-int countPairs1(int* arr, int len, int value) {
-    int count = 0;
-    for (int i = 0; i < len - 1; i++) {
-        for (int j = i + 1; j < len; j++) {
-            if (arr[i] + arr[j] == value) {
-                count++;
-            }
-        }
-    }
-    return count;
-}
-
-int countPairs2(int* arr, int len, int value) {
-    int count = 0;
-    for (int i = len - 1; i >= ; i--) {
-        if (arr[i] <= value) {
-            for (int j = i + 1; j < len; j++) {
-                if (arr[i] + arr[j] == value) {
-                    count++;
-                }
-            }
         }
     }
     return count;

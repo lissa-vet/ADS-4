@@ -7,11 +7,9 @@ int cbinsearch(int* arr, int k, int len, int elem) {
         mid = (i + j) / 2;
         if (arr[mid] > elem) {
             j = mid;
-        }
-        else if (arr[mid] < elem) {
+        } else if (arr[mid] < elem) {
             i = mid;
-        }
-        else {
+        } else {
             count++;
             side = mid + 1;
             while ((arr[side] == elem) && (side < j)) {

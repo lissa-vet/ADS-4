@@ -52,7 +52,7 @@ int countPairs2(int* arr, int len, int value) {
 int countPairs3(int* arr, int len, int value) {
     int count = 0;
     for (int i = 0; i < len - 1; i++) {
-        count += cbinsearch(arr, i, len, value);
+        count += cbinsearch(arr, i, len - i, value - arr[i]);
     }
     return count;
 }
